@@ -1,0 +1,92 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <bean id="demo" class="com.spring.sample.Employee">
+        <property name="empId" value="10" />
+        <property name="empName" value="AAAA"/>
+        <property name="empAdd" value="Bangalore"/>
+        <property name="mobNo" value="843883222"/>
+    </bean>
+    <bean id="insertData" class="com.spring.sample.Employee">
+
+        <constructor-arg value="1" type="int"/>
+        <constructor-arg value="BBBB" type="String" />
+        <constructor-arg value="23987498327"/>
+        <constructor-arg value="Allahabad"/>
+
+    </bean>
+
+
+    <bean id="empData" class="com.spring.sample.EmployeeData">
+        <property name="empManagement"  value="ACCENTURE"/>
+        <property name="noOfEmp" value="1000"/>
+        <property name="employee" ref="demo"/>
+
+    </bean>
+
+    <bean id="collegeData" class="com.spring.sample.CollegeData">
+        <property name="collId" value="500"/>
+        <property name="collName" value="IERT"/>
+        <property name="collAdd" value="Allahabad" />
+        <property name="list">
+          <list>
+              <bean id="insertData123344" class="com.spring.sample.Employee">
+
+              <constructor-arg value="1" type="int"/>
+              <constructor-arg value="BBBB" type="String" />
+              <constructor-arg value="23987498327"/>
+              <constructor-arg value="Allahabad"/>
+
+          </bean>
+
+              <bean id="insertData2434rhhggdjgfdgfgjdfg" class="com.spring.sample.Employee">
+
+                  <constructor-arg value="1" type="int"/>
+                  <constructor-arg value="BBBB" type="String" />
+                  <constructor-arg value="23987498327"/>
+                  <constructor-arg value="Allahabad"/>
+
+              </bean>
+
+              <bean id="insertData2434rhhggdjgfdgfgerjdfg" class="com.spring.sample.Employee">
+
+                  <constructor-arg value="1" type="int"/>
+                  <constructor-arg value="BBBB" type="String" />
+                  <constructor-arg value="23987498327"/>
+                  <constructor-arg value="Allahabad"/>
+
+              </bean>
+          </list>
+
+        </property>
+
+    </bean>
+
+    <bean name="studentData" class="com.spring.sample.Student">
+        <property name="id" value="99"/>
+        <property name="name" value="DDDD"/>
+        <property name="mobNo" value="4959"/>
+        <property name="add" value="Hydrabad"/>
+        <property name="map">
+            <map>
+                <entry key="1" value="ONE"/>
+                <entry key="2"  value="TWO"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="autowire" class="com.spring.sample.AutowireHelper" autowire="byName">
+
+    </bean>
+
+    <bean id="registration" class="com.spring.sample.Registration">
+
+    </bean>
+
+</beans>

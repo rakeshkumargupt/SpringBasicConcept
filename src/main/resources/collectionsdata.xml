@@ -1,0 +1,80 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+   http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+    <bean id="objectHelper" class="com.collections.ObjectHelper">
+        <property name="no" value="001"/>
+        <property name="relatedTo" value="Teacher"/>
+
+    </bean>
+
+    <bean id="teacherBean" class="com.collections.Teacher">
+        <constructor-arg  value="10" />
+        <constructor-arg  value="BBB"/>
+        <constructor-arg  value="Bangalore"/>
+        <constructor-arg>
+            <array>
+                <value> 99999999</value>
+                <value> 88888888</value>
+                <value> 77777777</value>
+            </array>
+        </constructor-arg>
+        <constructor-arg>
+            <array>
+                <value> My name is LALOO</value>
+                <value> Mob no - 89438348</value>
+                <value> 3838389389398</value>
+                <value> From Bihar</value>
+                <ref bean="objectHelper"/>
+            </array>
+        </constructor-arg>
+        <constructor-arg>
+            <list>
+                <value> This is list of Student</value>
+                <value> Number of Student is = 4 </value>
+                <value> Information of Student is </value>
+                <ref bean="BBB"/>
+                <ref bean="CCC"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+
+    <bean id="collegeBean" class="com.collections.College">
+        <property name="collId" value="111"/>
+        <property name="name" value="IITD"/>
+        <property name="teachers">
+            <array>
+                <ref bean="teacherBean"/>
+            </array>
+        </property>
+
+    </bean>
+
+    <bean id="BBB" class="com.collections.Pooja">
+        <constructor-arg value="55"/>
+        <constructor-arg value="POOJA KUMAR"/>
+        <constructor-arg value="9889389"/>
+        <constructor-arg >
+            <map >
+                <entry key="Rani at 2PM" value-ref="CCC"/>
+                <entry key="Rani at 3PM" value-ref="CCC"/>
+            </map>
+
+        </constructor-arg>
+    </bean>
+
+    <bean id="CCC" class="com.collections.Rani">
+        <constructor-arg value="66"/>
+        <constructor-arg value="RANI KUMARI"/>
+        <constructor-arg value="329839983"/>
+    </bean>
+
+
+</beans>
